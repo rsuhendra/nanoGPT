@@ -79,11 +79,11 @@ class Block(nn.Module):
 class GPTConfig:
 	# Default config
 	vocab_size: int 
-	context_size: int = 200
-	n_layer: int = 8
-	num_heads: int = 4
-	head_size: int = 8
-	n_embd: int = 32
+	context_size: int = 256
+	n_layer: int = 6
+	num_heads: int = 6
+	head_size: int = 64
+	n_embd: int = 384
 	mlp_mult: int = 4
 	dropout: float = 0.2
 	device: str = 'cuda'

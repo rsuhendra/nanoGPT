@@ -1,11 +1,12 @@
 from model import *
 
 # Training params
-batch_size = 4 # how many independent sequences will we process in parallel?
+batch_size = 32 # how many independent sequences will we process in parallel?
 max_iters = 1000
 eval_interval = 200
 learning_rate = 3e-4
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+print('Device is', device)
 eval_iters = 200
 
 # Load and clean data 

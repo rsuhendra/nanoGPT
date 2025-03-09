@@ -17,10 +17,11 @@ encode = lambda s: [stoi[c] for c in s] # encoder: take a string, output a list 
 decode = lambda l: ''.join([itos[i] for i in l]) # decoder: take a list of integers, output a string
 
 # Load the entire model
-model = torch.load("model.pth", weights_only=False)
+model = torch.load("model.pth", weights_only=False, map_location=torch.device('cpu'))
+model.device = device
 m = model.to(device)
-
 
 # generate from the model
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=100)[0].tolist()))
+with open('sample.txt', 'a') as f:
+    print(decode(m.generate(context, max_new_tokens=1000)[0].tolist()), file=f)
